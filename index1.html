@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <style>
+        :root {
+            --bg-color: #fff5f5;
+            --text-color: #4a4a4a;
+            --accent-color: #ff85a1;
+            --soft-pink: #ffe3e3;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        h1 { color: var(--accent-color); margin-bottom: 15px; font-size: 1.8rem; }
+        p { margin-bottom: 20px; font-size: 1.05rem; }
+
+        .heart-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            flex: 1;
+        }
+
+        .btn-primary { background-color: var(--accent-color); color: white; }
+        .btn-secondary { background-color: var(--soft-pink); color: var(--accent-color); }
+        
+        #no-btn { position: relative; }
+
+        /* Reminder Box */
+        .reminder-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+            margin-top: 20px;
+        }
+
+        nav {
+            margin-top: auto;
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- PAGE 1: REASSURANCE -->
+    <div id="home" class="page active">
+        <div class="heart-icon">❤️</div>
+        <h1>I'm Here.</h1>
+        <p>I want you to know, deeply and truly, that I am always here for you. No matter how hard the road gets or what challenges we face, I am staying right by your side.</p>
+        <p>I am genuinely working every day to fix my mistakes. I’m learning, I’m growing, and I’m doing it all because making you happy is my priority. I need your support and your trust as I strive to become the person you deserve.</p>
+        
+        <div class="reminder-card">
+            <p style="margin:0; font-style: italic;">"Will you give me another chance to prove my love to you, my dear?"</p>
+            <div class="btn-group">
+                <button class="btn-primary" onclick="alert('Thank you for trusting me. I won\'t let you down.')">Yes</button>
+                <button id="no-btn" class="btn-secondary" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: THE SPARK CHECK -->
+    <div id="reminder" class="page">
+        <h1>For the Hard Days</h1>
+        <p>Sometimes, life gets noisy and I might stumble. If you ever feel like:</p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li>I'm losing my spark...</li>
+            <li>My efforts are fading...</li>
+            <li>I'm not making you smile...</li>
+        </ul>
+        <p><strong>Please share this page with me immediately.</strong></p>
+        <div class="reminder-card" style="text-align: center;">
+            <p>I promise to listen, to reset, and to remind you why we started this journey. You are my world.</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#" class="nav-link" onclick="showPage('home')">My Promise</a>
+        <a href="#" class="nav-link" onclick="showPage('reminder')">Open When...</a>
+    </nav>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    function moveButton() {
+        const btn = document.getElementById('no-btn');
+        const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+        const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+        btn.style.position = 'fixed';
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+    }
+</script>
+
+</body>
+</html>
