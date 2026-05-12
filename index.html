@@ -1,163 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You</title>
-    <style>
-        :root {
-            --bg-color: #fff5f5;
-            --text-color: #4a4a4a;
-            --accent-color: #ff85a1;
-            --soft-pink: #ffe3e3;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<title>For You ❤️</title>
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<meta name="theme-color" content="#ff85a1">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* Pages */
-        .page {
-            display: none;
-            animation: fadeIn 0.8s ease-in-out;
-        }
+<style>
+:root{
+    --bg1:#fff5f5;
+    --bg2:#ffe3e3;
+    --pink:#ff85a1;
+    --soft:#fff0f3;
+    --text:#444;
+}
 
-        .active { display: block; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* Typography */
-        h1 { color: var(--accent-color); margin-bottom: 15px; font-size: 1.8rem; }
-        p { margin-bottom: 20px; font-size: 1.05rem; }
+body{
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+    overflow-x:hidden;
 
-        .heart-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    background: linear-gradient(-45deg, #fff5f5, #ffe3e3, #ffd6e0, #fff0f3);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
 
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.2s;
-            flex: 1;
-        }
+.container{
+    max-width:450px;
+    margin:auto;
+    min-height:100vh;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
 
-        .btn-primary { background-color: var(--accent-color); color: white; }
-        .btn-secondary { background-color: var(--soft-pink); color: var(--accent-color); }
-        
-        #no-btn { position: relative; }
+.page{
+    display:none;
+    min-height:80vh;
+    justify-content:center;
+    flex-direction:column;
+    animation:fade 0.7s ease;
+}
 
-        /* Reminder Box */
-        .reminder-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--accent-color);
-            margin-top: 20px;
-        }
+.page.active{
+    display:flex;
+}
 
-        nav {
-            margin-top: auto;
-            padding-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        .nav-link {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-    </style>
+/* HERO */
+
+.hero{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.hero h1{
+    font-size:2.7rem;
+    color:var(--pink);
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    opacity:0.85;
+}
+
+/* TEXT */
+
+h2{
+    color:var(--pink);
+    margin-bottom:15px;
+    font-size:1.8rem;
+}
+
+p{
+    font-size:1.08rem;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(8px);
+
+    padding:22px;
+    border-radius:25px;
+
+    margin-top:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* BUTTONS */
+
+.btn-group{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+.btn-primary{
+    background:var(--pink);
+    color:white;
+}
+
+.btn-secondary{
+    background:white;
+    color:var(--pink);
+}
+
+/* NAV */
+
+nav{
+    margin-top:auto;
+
+    display:flex;
+    justify-content:center;
+    gap:18px;
+
+    padding-top:20px;
+}
+
+.nav-link{
+    text-decoration:none;
+    color:var(--pink);
+    font-weight:600;
+    font-size:0.95rem;
+}
+
+/* GALLERY */
+
+.gallery{
+    margin-top:15px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    font-size:1.2rem;
+
+    z-index:1000;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart{
+    position:fixed;
+    bottom:-20px;
+    color:rgba(255,133,161,0.5);
+    animation:floatUp 5s linear forwards;
+    pointer-events:none;
+    z-index:999;
+}
+
+@keyframes floatUp{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* LETTER STYLE */
+
+.letter{
+    font-family:cursive;
+    font-size:1.15rem;
+    color:#555;
+}
+
+/* FINAL SECTION */
+
+.final-text{
+    text-align:center;
+    margin-top:30px;
+}
+
+.final-text h1{
+    color:var(--pink);
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+</style>
 </head>
+
 <body>
 
+<button class="music-btn btn-primary" onclick="toggleMusic()">🎵</button>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
-    
-    <!-- PAGE 1: REASSURANCE -->
+
+    <!-- HOME -->
     <div id="home" class="page active">
-        <div class="heart-icon">❤️</div>
-        <h1>I'm Here.</h1>
-        <p>I want you to know, deeply and truly, that I am always here for you. No matter how hard the road gets or what challenges we face, I am staying right by your side.</p>
-        <p>I am genuinely working every day to fix my mistakes. I’m learning, I’m growing, and I’m doing it all because making you happy is my priority. I need your support and your trust as I strive to become the person you deserve.</p>
-        
-        <div class="reminder-card">
-            <p style="margin:0; font-style: italic;">"Will you give me another chance to prove my love to you, my dear?"</p>
+
+        <div class="hero">
+            <h1>For Her ❤️</h1>
+            <p>Every version of my future has you in it.</p>
+        </div>
+
+        <div class="card">
+            <h2>I'm Here.</h2>
+
+            <p>
+                No matter how difficult life becomes,
+                I want you to know that I am still here,
+                still trying, still learning,
+                and still choosing you every single day.
+            </p>
+
+            <p>
+                I know I make mistakes sometimes,
+                but I genuinely want to grow into someone
+                who gives you peace, comfort, and happiness.
+            </p>
+
             <div class="btn-group">
-                <button class="btn-primary" onclick="alert('Thank you for trusting me. I won\'t let you down.')">Yes</button>
-                <button id="no-btn" class="btn-secondary" onmouseover="moveButton()">No</button>
+                <button class="btn-primary"
+                onclick="yesMessage()">
+                    Yes ❤️
+                </button>
+
+                <button class="btn-secondary"
+                onclick="noMessage()">
+                    No
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 2: THE SPARK CHECK -->
-    <div id="reminder" class="page">
-        <h1>For the Hard Days</h1>
-        <p>Sometimes, life gets noisy and I might stumble. If you ever feel like:</p>
-        <ul style="margin-left: 20px; margin-bottom: 20px;">
-            <li>I'm losing my spark...</li>
-            <li>My efforts are fading...</li>
-            <li>I'm not making you smile...</li>
-        </ul>
-        <p><strong>Please share this page with me immediately.</strong></p>
-        <div class="reminder-card" style="text-align: center;">
-            <p>I promise to listen, to reset, and to remind you why we started this journey. You are my world.</p>
+    <!-- MEMORIES -->
+    <div id="memories" class="page">
+
+        <h2>Our Moments ✨</h2>
+
+        <div class="gallery">
+
+            <!-- Replace with your photos -->
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+
+        </div>
+
+        <div class="card letter">
+            Even on difficult days,
+            I never stop being grateful
+            that you exist in my life.
         </div>
     </div>
 
+    <!-- REASONS -->
+    <div id="reasons" class="page">
+
+        <h2>Reasons I Love You 💖</h2>
+
+        <div class="card">
+            Your smile makes every bad day easier.
+        </div>
+
+        <div class="card">
+            You make ordinary moments feel special.
+        </div>
+
+        <div class="card">
+            Being around you feels like peace.
+        </div>
+
+        <div class="card">
+            You are genuinely one of the most beautiful souls I know.
+        </div>
+
+    </div>
+
+    <!-- FINAL -->
+    <div id="final" class="page">
+
+        <div class="final-text">
+
+            <h1>Always You.</h1>
+
+            <p>
+                No matter how much time passes,
+                you will always be important to me.
+            </p>
+
+            <p>
+                Thank you for existing.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+
     <nav>
-        <a href="#" class="nav-link" onclick="showPage('home')">My Promise</a>
-        <a href="#" class="nav-link" onclick="showPage('reminder')">Open When...</a>
+        <a href="#" class="nav-link"
+        onclick="showPage('home')">
+            Home
+        </a>
+
+        <a href="#" class="nav-link"
+        onclick="showPage('memories')">
+            Memories
+        </a>
+
+        <a href="#" class="nav-link"
+        onclick="showPage('reasons')">
+            Reasons
+        </a>
+
+        <a href="#" class="nav-link"
+        onclick="showPage('final')">
+            End
+        </a>
     </nav>
+
 </div>
 
 <script>
-    function showPage(pageId) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-    }
 
-    function moveButton() {
-        const btn = document.getElementById('no-btn');
-        const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
-        const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
-        btn.style.position = 'fixed';
-        btn.style.left = x + 'px';
-        btn.style.top = y + 'px';
+/* PAGE SWITCH */
+
+function showPage(pageId){
+
+    document.querySelectorAll('.page')
+    .forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId)
+    .classList.add('active');
+}
+
+/* BUTTON RESPONSES */
+
+function yesMessage(){
+    alert("Thank you for believing in me ❤️");
+}
+
+function noMessage(){
+    alert("That’s okay. I’ll still respect your feelings and keep improving.");
+}
+
+/* MUSIC */
+
+function toggleMusic(){
+
+    const music = document.getElementById('music');
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
     }
+}
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "❤";
+
+    heart.classList.add("floating-heart");
+
+    heart.style.left =
+        Math.random() * window.innerWidth + "px";
+
+    heart.style.fontSize =
+        Math.random() * 20 + 10 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 400);
+
 </script>
 
 </body>
