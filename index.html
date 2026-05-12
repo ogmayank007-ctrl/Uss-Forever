@@ -78,8 +78,6 @@ body{
     }
 }
 
-/* HERO */
-
 .hero{
     text-align:center;
     margin-bottom:40px;
@@ -96,8 +94,6 @@ body{
     opacity:0.85;
 }
 
-/* TEXT */
-
 h2{
     color:var(--pink);
     margin-bottom:15px;
@@ -110,21 +106,14 @@ p{
     margin-bottom:18px;
 }
 
-/* CARDS */
-
 .card{
     background:rgba(255,255,255,0.8);
     backdrop-filter:blur(8px);
-
     padding:22px;
     border-radius:25px;
-
     margin-top:18px;
-
     box-shadow:0 8px 25px rgba(0,0,0,0.06);
 }
-
-/* BUTTONS */
 
 .btn-group{
     display:flex;
@@ -137,22 +126,14 @@ button{
     padding:14px;
     border:none;
     border-radius:30px;
-
     font-size:1rem;
     font-weight:600;
-
     cursor:pointer;
-
     transition:0.25s;
 }
 
-button:hover{
-    transform:scale(1.03);
-}
-
-button:active{
-    transform:scale(0.95);
-}
+button:hover{ transform:scale(1.03); }
+button:active{ transform:scale(0.95); }
 
 .btn-primary{
     background:var(--pink);
@@ -164,15 +145,11 @@ button:active{
     color:var(--pink);
 }
 
-/* NAV */
-
 nav{
     margin-top:auto;
-
     display:flex;
     justify-content:center;
     gap:18px;
-
     padding-top:20px;
 }
 
@@ -182,8 +159,6 @@ nav{
     font-weight:600;
     font-size:0.95rem;
 }
-
-/* GALLERY */
 
 .gallery{
     margin-top:15px;
@@ -195,24 +170,16 @@ nav{
     margin-bottom:15px;
 }
 
-/* MUSIC BUTTON */
-
 .music-btn{
     position:fixed;
     top:15px;
     right:15px;
-
     width:50px;
     height:50px;
-
     border-radius:50%;
-
     font-size:1.2rem;
-
     z-index:1000;
 }
-
-/* FLOATING HEARTS */
 
 .floating-heart{
     position:fixed;
@@ -230,15 +197,11 @@ nav{
     }
 }
 
-/* LETTER STYLE */
-
 .letter{
     font-family:cursive;
     font-size:1.15rem;
     color:#555;
 }
-
-/* FINAL SECTION */
 
 .final-text{
     text-align:center;
@@ -255,17 +218,17 @@ nav{
 
 <body>
 
+<!-- MUSIC BUTTON -->
 <button class="music-btn btn-primary" onclick="toggleMusic()">🎵</button>
 
+<!-- MUSIC (UPDATED FILE NAME HERE ✅) -->
 <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="sound_67df80461158e.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
-    <!-- HOME -->
     <div id="home" class="page active">
-
         <div class="hero">
             <h1>For Her ❤️</h1>
             <p>Every version of my future has you in it.</p>
@@ -288,31 +251,19 @@ nav{
             </p>
 
             <div class="btn-group">
-                <button class="btn-primary"
-                onclick="yesMessage()">
-                    Yes ❤️
-                </button>
-
-                <button class="btn-secondary"
-                onclick="noMessage()">
-                    No
-                </button>
+                <button class="btn-primary" onclick="yesMessage()">Yes ❤️</button>
+                <button class="btn-secondary" onclick="noMessage()">No</button>
             </div>
         </div>
     </div>
 
-    <!-- MEMORIES -->
     <div id="memories" class="page">
-
         <h2>Our Moments ✨</h2>
 
         <div class="gallery">
-
-            <!-- Replace with your photos -->
             <img src="IMG_20251123_171721.jpg">
             <img src="IMG_20260130_172510_076.jpg">
             <img src="Snapchat-1230838250.jpg">
-
         </div>
 
         <div class="card letter">
@@ -322,91 +273,40 @@ nav{
         </div>
     </div>
 
-    <!-- REASONS -->
     <div id="reasons" class="page">
-
         <h2>Reasons I Love You 💖</h2>
 
-        <div class="card">
-            Your smile makes every bad day easier.
-        </div>
-
-        <div class="card">
-            You make ordinary moments feel special.
-        </div>
-
-        <div class="card">
-            Being around you feels like peace.
-        </div>
-
-        <div class="card">
-            You are genuinely one of the most beautiful souls I know.
-        </div>
-
+        <div class="card">Your smile makes every bad day easier.</div>
+        <div class="card">You make ordinary moments feel special.</div>
+        <div class="card">Being around you feels like peace.</div>
+        <div class="card">You are genuinely one of the most beautiful souls I know.</div>
     </div>
 
-    <!-- FINAL -->
     <div id="final" class="page">
-
         <div class="final-text">
-
             <h1>Always You.</h1>
-
-            <p>
-                No matter how much time passes,
-                you will always be important to me.
-            </p>
-
-            <p>
-                Thank you for existing.
-            </p>
-
+            <p>No matter how much time passes, you will always be important to me.</p>
+            <p>Thank you for existing.</p>
         </div>
-
     </div>
-
-    <!-- NAVIGATION -->
 
     <nav>
-        <a href="#" class="nav-link"
-        onclick="showPage('home')">
-            Home
-        </a>
-
-        <a href="#" class="nav-link"
-        onclick="showPage('memories')">
-            Memories
-        </a>
-
-        <a href="#" class="nav-link"
-        onclick="showPage('reasons')">
-            Reasons
-        </a>
-
-        <a href="#" class="nav-link"
-        onclick="showPage('final')">
-            End
-        </a>
+        <a href="#" class="nav-link" onclick="showPage('home')">Home</a>
+        <a href="#" class="nav-link" onclick="showPage('memories')">Memories</a>
+        <a href="#" class="nav-link" onclick="showPage('reasons')">Reasons</a>
+        <a href="#" class="nav-link" onclick="showPage('final')">End</a>
     </nav>
 
 </div>
 
 <script>
 
-/* PAGE SWITCH */
-
 function showPage(pageId){
-
-    document.querySelectorAll('.page')
-    .forEach(page => {
+    document.querySelectorAll('.page').forEach(page=>{
         page.classList.remove('active');
     });
-
-    document.getElementById(pageId)
-    .classList.add('active');
+    document.getElementById(pageId).classList.add('active');
 }
-
-/* BUTTON RESPONSES */
 
 function yesMessage(){
     alert("Thank you for believing in me ❤️");
@@ -416,40 +316,42 @@ function noMessage(){
     alert("That’s okay. I’ll still respect your feelings and keep improving.");
 }
 
-/* MUSIC */
+/* MUSIC - plays on first tap */
+
+const music = document.getElementById("music");
+music.volume = 0.7;
+
+let musicStarted = false;
+
+function startMusicOnce(){
+    if(!musicStarted){
+        music.play().catch(()=>{});
+        musicStarted = true;
+    }
+}
+
+document.addEventListener("click", startMusicOnce);
+document.addEventListener("touchstart", startMusicOnce);
 
 function toggleMusic(){
-
-    const music = document.getElementById('music');
-
     if(music.paused){
         music.play();
-    }else{
+    } else {
         music.pause();
     }
 }
 
 /* FLOATING HEARTS */
-
 function createHeart(){
-
     const heart = document.createElement("div");
-
     heart.innerHTML = "❤";
-
     heart.classList.add("floating-heart");
-
-    heart.style.left =
-        Math.random() * window.innerWidth + "px";
-
-    heart.style.fontSize =
-        Math.random() * 20 + 10 + "px";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+    setTimeout(()=>heart.remove(), 5000);
 }
 
 setInterval(createHeart, 400);
